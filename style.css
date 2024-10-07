@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+ 
+.ludo-container {
+    width: 450px;
+    margin: 20px auto;
+    z-index: 1; 
+    position: relative; 
+}
+
+.ludo-container .ludo {
+    height: 450px;
+    width: 100%;
+    background-image: url('./ludo-bg.jpg');
+    background-size: contain;
+    position: relative; 
+}
+.player-pieces {
+    height: 100%;
+    width: 100%;
+}
+
+.player-piece {
+    width: 3%;
+    height: 3%;
+    border: 2px solid;
+    border-radius: 10px;
+    position: absolute;
+    transform: translate(50%, 50%);
+    transition: all .2s;
+    z-index: 1;
+}
+.player-piece.highlight {
+    cursor: pointer;
+    border: 2px dashed;
+    animation: spin 1s infinite linear;
+}
+@keyframes spin {
+    0% {
+        transform: translate(50%, 50%) rotate(0deg);
+    }
+    50% {
+        transform: translate(50%, 50%) rotate(180deg) scale(1.4);
+    }
+    100% {
+        transform: translate(50%, 50%) rotate(360deg);
+    }
+}
+
+[player-id="P1"].player-piece {
+    background-color: #2eafff;
+}
+
+[player-id="P2"].player-piece {
+    background-color: #00b550;
+}
+
+.player-base {
+    width: 40%;
+    height: 40%;
+    border: 30px solid;
+    position: absolute;
+}
+
+.player-bases [player-id="P1"].player-base {
+    bottom: 0;
+    left: 0;
+    border-color: #1295e7;
+}
+
+.player-bases [player-id="P2"].player-base {
+    top: 0;
+    right: 0;
+    border-color: #049645;
+}
+
+.player-base.highlight {
+    animation: border-blink .7s infinite ease-in-out;
+}
+
+@keyframes border-blink {
+    50% {
+        border-color: rgb(255, 250, 205, 0.5);
+    }
+}
+h2, .active-player {
+  color: white;
+  font-size: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0); /* Applying text shadow */
+}
+.dice-value {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0); /* Applying text shadow */
+}
+
+.btn {
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #049645;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+.btn-dice {
+    background-color: #009d60;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.blur-background {
+    position: relative; /* To position the ::before element relative to this container */
+    height: 100vh;
+}
+
+.blur-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(https://img.freepik.com/premium-photo/3d-rendered-ludo-dice-with-neon-effect-against-black-background_1069963-5373.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px); /* Apply blur only to the background image */
+    z-index: -1; /* Ensure the background stays behind the content */
+}

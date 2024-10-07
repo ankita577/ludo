@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Ludo King Game</title>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #2b2b2b;
+            background-image: url("https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQQG1FcPgt10oE-NmbJiArhizOA1fM-8uc4FRsb1pCZBoXkgZvdPjcd89bHaePzOm4y3tutn8zP1w5qXT4LHduW4eKHuzlGGgXiC3KBWXp7UjZ5UYC3cseoXTNx024GyT4x525WM4oR-y6owGcRCjwpPq.jpg?r=ebd");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 64px; /* Increased font size */
+            animation: fadeIn 1.5s ease-in-out, blink 1s infinite; /* Added blink animation */
+            text-shadow: 2px 2px 10px rgba(255, 105, 180, 0.8); /* Added text shadow for sparkle effect */
+            margin-bottom: 50px; /* Increased margin to move it further down */
+            padding-top: 10%;
+            -webkit-text-fill-color: rgb(245, 240, 240);
+        }
+
+        .start-button {
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #1a0e5f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            animation: slideIn 1.5s ease-in-out;
+            margin-top: 20px; /* Margin for spacing */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.3); /* Added shadow */
+        }
+
+        .start-button:hover {
+            background-color: #ff6b81;
+            transform: translateY(-5px) scale(1.05); /* 3D lift effect on hover */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5; /* Blink effect */
+            }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .fa {
+            margin-right: 8px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 48px; /* Smaller font size for mobile devices */
+            }
+            .start-button {
+                font-size: 20px; /* Smaller button font size */
+                padding: 12px 25px; /* Smaller button padding */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 36px; /* Even smaller font size for very small screens */
+                margin-bottom: 30px; /* Reduced margin for smaller screens */
+            }
+            .start-button {
+                font-size: 18px; /* Even smaller button font size */
+                padding: 10px 20px; /* Smaller button padding */
+            }
+            .footer {
+                font-size: 12px; /* Smaller footer font size */
+            }
+        }
+
+        /* background sound css */
+        .audio-control {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 50px; /* Adjust the size */
+        height: 50px;
+        cursor: pointer;
+    }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Welcome to Ludo King</h1>
+    <a href="index1.html" class="start-button">Start Game</a>
+    <div class="footer">
+        <p><i class="fa fa-copyright"></i> 2024 Ludo King. All rights reserved.</p>
+    </div>
+
+    <audio id="background-audio" loop>
+        <source src="king.wav" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+    
+     <!-- Audio Control Images -->
+     <img id="audio-control" class="audio-control" src="https://cdn4.iconfinder.com/data/icons/essential-app-2/16/volume-sound-speaker-mute-64.png" alt="Play/Pause" onclick="toggleAudio()">
+
+     <script>
+         const audio = document.getElementById("background-audio");
+         const audioControl = document.getElementById("audio-control");
+ 
+         function toggleAudio() {
+             if (audio.paused) {
+                 audio.play();
+                 audioControl.src = "https://cdn3.iconfinder.com/data/icons/system-basic-vol-5/20/icon-speaker-loudness-sound-2-64.png"; // Change to pause image
+             } else {
+                 audio.pause();
+                 audioControl.src = "https://cdn4.iconfinder.com/data/icons/essential-app-2/16/volume-sound-speaker-mute-64.png"; // Change to play image
+             }
+         }
+     </script>
+ 
+    </body>
+</html>
